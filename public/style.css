@@ -1,7 +1,80 @@
-p{font-size: 20px; color:#000;}
+h1{color:#000;
+text-align: center;
 
-.cover{float:left;
-margin-right:40px;
 }
 
-img{width: 200px; height:200px;}
+p{font-size: 20px; color:#000;}
+
+#cover{
+padding-top:100px;
+margin:0 auto;
+z-index: -1;
+text-align: center;
+}
+
+img{width: 200px;
+ height:200px;
+ cursor:pointer;
+ padding:20px;
+}
+
+#container{  
+
+width:100%;
+height: 100%;
+position:absolute;
+top:0;
+left:0;
+/* default fallback */
+background: rgb(128, 128, 128) transparent;
+/* nice browsers */
+background: rgba(128, 128, 128, 0.8);
+
+}
+
+
+.display{
+
+display:none;
+
+}
+
+
+.trackWindow{
+
+width:800px;
+height:400px;
+margin:0 auto;
+background: #fff;
+border:1px solid #000;
+position:fixed;
+top: 50%;
+left: 50%;
+margin-top:-200px;
+margin-left: -400px;
+/*background: rgb(255, 255, 255) transparent;
+ nice browsers 
+background: rgba(255, 255, 255, 0.8);*/
+
+}
+
+.trackWindow p{
+padding:20px;
+}
+
+.close {
+
+  float:right;
+  background: url("../images/close.png") no-repeat top left;
+  display: block;
+  width:20px;
+  height:20px;
+  background-size: 20px 20px;
+  text-indent:  -9999px;
+  cursor:pointer;
+  margin:10px;
+}
+
+
+
+

@@ -17,21 +17,27 @@
 
     <input type="text" id="search" onchange="doSearch()" />
 
-    <div id="catalog">
+<!--     <div id="catalog">
     </div>
+ -->
 
+ 
 
-    <div class ="container">
-
-      <div track="track">
-          <div id="cover" class="cover">
+  <div id="cover">
           
-          </div>
+  </div>
 
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur </p>
-      </div>
 
-    </div>
+<!--  <div class ="container" id="container">
+        <div class="trackWindow">
+
+              <div class="close" onclick ="popUp()">
+               close
+              </div>
+             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur </p>
+        </div>
+  </div> -->
+
 
     <script>
       SC.initialize({
@@ -51,8 +57,10 @@
             var imageCon = document.getElementById("cover");
 
             while (imageCon.firstChild) {
+
               imageCon.removeChild(imageCon.firstChild);
-              }
+
+            }
 
             for(track in tracks) {
               console.log(tracks[track]);
@@ -61,12 +69,49 @@
                 var imgURL = tracks[track]["artwork_url"];
                 console.log(imgURL);
 
-
+                // Album cover
                 var cover = document.createElement("img");
 
-                cover.setAttribute("src",imgURL);
+                cover.onclick = function(){
 
-                imageCon.appendChild(cover);
+                   var container = document.createElement("div");
+                   container.setAttribute("id","container");
+
+                   var trackWindow = document.createElement("div");
+                   trackWindow.setAttribute("class","trackWindow");
+
+                   var close = document.createElement("div");
+
+                   close.setAttribute("class","close");
+                   close.innerHTML="close";
+
+                   var paragraph = document.createElement("p");
+
+                   paragraph.innerHTML="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur";
+
+                   trackWindow.appendChild(close);
+                   trackWindow.appendChild(paragraph);
+                   container.appendChild(trackWindow);
+                   
+
+                  close.onclick = function(){
+
+                           // container.setAttribute("class","display");
+                           document.body.removeChild(container);
+
+                   }
+
+
+                   document.body.appendChild(container);
+
+                }
+
+                if (imgURL!=null){
+                  cover.setAttribute("src",imgURL);
+                  imageCon.appendChild(cover);
+                }
+                // Album more info
+                
 
             }
           }
@@ -80,5 +125,4 @@
 
 
   </body>
-
 </html>
