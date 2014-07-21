@@ -6,9 +6,11 @@
     <title>My Amazing SoundCloud Catalog</title>
         <link href="normalize.css" type = "text/css" rel = "stylesheet"/>
     <link href="style.css" type = "text/css" rel = "stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
     <script src="jukebox.js"></script>
-    </script>
+    <script type="text/javascript" src="javascript/api.js"></script>
+  
   </head>
 
   <body>
@@ -17,112 +19,8 @@
 
     <input type="text" id="search" onchange="doSearch()" />
 
-<!--     <div id="catalog">
+    <div id="cover">        
     </div>
- -->
-
- 
-
-  <div id="cover">
-          
-  </div>
-
-
-<!--  <div class ="container" id="container">
-        <div class="trackWindow">
-
-              <div class="close" onclick ="popUp()">
-               close
-              </div>
-             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur </p>
-        </div>
-  </div> -->
-
-
-    <script>
-      SC.initialize({
-        client_id: '8bbefc4c2937df96f51c71f029e885a2'
-      });
-
-      function doSearch() {
-        var searchTerm = document.getElementById('search').value;
-
-        // Encode spaces
-        searchTerm = searchTerm.replace(" ", "+");
-
-        // Search soundcloud for artists
-        SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
-            
-            
-            var imageCon = document.getElementById("cover");
-
-            while (imageCon.firstChild) {
-
-              imageCon.removeChild(imageCon.firstChild);
-
-            }
-
-            for(track in tracks) {
-              console.log(tracks[track]);
-
-        
-                var imgURL = tracks[track]["artwork_url"];
-                console.log(imgURL);
-
-                // Album cover
-                var cover = document.createElement("img");
-
-                cover.onclick = function(){
-
-                   var container = document.createElement("div");
-                   container.setAttribute("id","container");
-
-                   var trackWindow = document.createElement("div");
-                   trackWindow.setAttribute("class","trackWindow");
-
-                   var close = document.createElement("div");
-
-                   close.setAttribute("class","close");
-                   close.innerHTML="close";
-
-                   var paragraph = document.createElement("p");
-
-                   paragraph.innerHTML="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur";
-
-                   trackWindow.appendChild(close);
-                   trackWindow.appendChild(paragraph);
-                   container.appendChild(trackWindow);
-                   
-
-                  close.onclick = function(){
-
-                           // container.setAttribute("class","display");
-                           document.body.removeChild(container);
-
-                   }
-
-
-                   document.body.appendChild(container);
-
-                }
-
-                if (imgURL!=null){
-                  cover.setAttribute("src",imgURL);
-                  imageCon.appendChild(cover);
-                }
-                // Album more info
-                
-
-            }
-          }
-        );
-      };
-
-
-
-    </script>
-
-
 
   </body>
 </html>

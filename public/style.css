@@ -1,9 +1,13 @@
+html, body {height:100%; margin:0; padding:0;}
+
+
+
 h1{color:#000;
 text-align: center;
 
 }
 
-p{font-size: 20px; color:#000;}
+p{font-size: 80%; color:#000;}
 
 #cover{
 padding-top:100px;
@@ -22,7 +26,8 @@ img{width: 200px;
 
 width:100%;
 height: 100%;
-position:absolute;
+min-height: 100%;
+position:fixed;
 top:0;
 left:0;
 /* default fallback */
@@ -30,20 +35,15 @@ background: rgb(128, 128, 128) transparent;
 /* nice browsers */
 background: rgba(128, 128, 128, 0.8);
 
-}
-
-
-.display{
-
-display:none;
 
 }
+
 
 
 .trackWindow{
-
+font-size: 100%;
 width:800px;
-height:400px;
+min-height:400px;
 margin:0 auto;
 background: #fff;
 border:1px solid #000;
@@ -55,12 +55,12 @@ margin-left: -400px;
 /*background: rgb(255, 255, 255) transparent;
  nice browsers 
 background: rgba(255, 255, 255, 0.8);*/
-
+padding: 20px;
 }
 
-.trackWindow p{
+/*.trackWindow p{
 padding:20px;
-}
+}*/
 
 .close {
 
