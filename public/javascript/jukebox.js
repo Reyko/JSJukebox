@@ -4,9 +4,6 @@ $(document).ready(function(){
   });
 });
 
-
-
-
 function popUp(){
  var info = document.getElementById("container");
  info.setAttribute("class","display")
@@ -27,13 +24,8 @@ function doSearch() {
     }
 
     for(track in tracks) {
-      console.log(tracks[track]);
-
-      var imgURL = tracks[track]["artwork_url"];
-      var trackDesc = tracks[track]["description"];
-      var trackTitle = tracks[track]["title"];
-      var soundURL = tracks[track]["uri"];
-      console.log(imgURL);
+      // console.log(tracks[track]);
+      var track = new Track(tracks[track]["artwork_url"],tracks[track]["description"],tracks[track]["title"],tracks[track]["uri"])
 
       // Album cover
       var cover = document.createElement("img");
@@ -65,7 +57,7 @@ function doSearch() {
         player.setAttribute("height","166");
         player.setAttribute("scrolling","no");
         player.setAttribute("frameborder","no");
-        player.setAttribute("src","https://w.soundcloud.com/player/?url=" + soundURL + "&&show_artwork=true");
+        player.setAttribute("src","https://w.soundcloud.com/player/?url=" + track.soundUrl + "&&show_artwork=true");
         
 
         trackWindow.appendChild(close);
@@ -82,10 +74,10 @@ function doSearch() {
         document.body.appendChild(container);
       }
 
-      if (imgURL!=null){
-        cover.setAttribute("src",imgURL);
-        cover.dataset.description = trackDesc;
-        cover.dataset.title = trackTitle;
+      if (track.imgUrl!=null){
+        cover.setAttribute("src",track.imgUrl);
+        cover.dataset.description = track.desc;
+        cover.dataset.title = track.title;
         imageCon.appendChild(cover);
       }
         // Album more info
