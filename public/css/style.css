@@ -9,11 +9,20 @@ text-align: center;
 
 p{font-size: 80%; color:#000;}
 
-#cover{
+#tracks{
 padding-top:100px;
 margin:0 auto;
 z-index: -1;
-text-align: center;
+}
+
+.track{
+  width:20%;
+  display:inline-block;
+  float:left;
+}
+
+.x3dom-canvas{
+  outline:0;
 }
 
 img{width: 200px;
@@ -74,7 +83,6 @@ padding:20px;
   cursor:pointer;
   margin:10px;
 }
-
 
 
 
