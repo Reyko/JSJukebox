@@ -33,6 +33,10 @@ z-index: -1;
   float:left;
 }
 
+.track:hover{
+  cursor:pointer;
+}
+
 .x3dom-canvas{
   outline:0;
 }
