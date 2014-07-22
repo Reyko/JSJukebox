@@ -77,7 +77,7 @@ function doSearch() {
 
 
       // Album cover modal
-      cover.onclick = function(){
+      cover.ondblclick = function(){
 
         var container = document.createElement("div");
         container.setAttribute("id","container");
