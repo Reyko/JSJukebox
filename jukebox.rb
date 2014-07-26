@@ -1,5 +1,9 @@
 require 'sinatra'
+require 'erb'
+require 'tilt'
+
 
 get '/' do
-  redirect '/index.html'
+  template = Tilt.new('views/index.html.erb')
+  template.render
 end

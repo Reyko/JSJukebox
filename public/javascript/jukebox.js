@@ -1,7 +1,11 @@
 $(document).ready(function(){
-  SC.initialize({
-    client_id: '8bbefc4c2937df96f51c71f029e885a2'
-  });
+  $.get('../config/config.yml', function(data) {
+    SC.initialize({
+      client_id: data
+    });
+  }); 
+
+
 });
 
 function popUp(){
